@@ -1,41 +1,118 @@
 Flow Theory Engines (v1.0)
 
-Reference implementation of Flow Theory Engines A, B, and C by GhostDog.
+Reference Implementation by GhostDog
 
-Flow Theory provides a general dynamic-systems architecture built around the variables Flow, Capacity, Pressure, Drift, and Trust.
+Flow Theory introduces a unified dynamic-systems architecture built on five structural variables:
 
-These engines implement the core update rules:
+Flow — Capacity — Pressure — Drift — Trust
 
-Engine A: Single-system dynamics
+These variables generate adaptive cycles observed across markets, institutions, technologies, ecosystems, and interconnected system networks.
 
-Engine B: Fast/slow multi-layer recursion
+This repository provides the official, minimal reference engines used in:
 
-Engine C: System-of-systems contagion via pressure coupling
+GhostDog — “The Flow Architecture: A Unified Model of Adaptive Cycles” (SSRN, 2025)
 
-All engines are general, parameter-driven, and domain-agnostic.
+What’s Included
+Engine A — Single-System Dynamics
 
-Open Research Framework
+A compact model of one adaptive system evolving through expansion, strain, contraction, and renewal.
 
-Flow Theory is released as an open, extensible research framework.
+Engine B — Fast/Slow Recursive Dynamics
 
-You are free to break, improve, extend, fork, rebuild, adapt, or evolve the engines in any direction you find valuable.
+Two-layer interaction (fast markets ↔ slow institutions) with structural feedback between layers.
 
-All I ask is that you preserve attribution to:
+Engine C — System-of-Systems Contagion
 
-GhostDog — “The Flow Architecture: A Unified Model of Adaptive Cycles” (SSRN, 2025).
+Multi-system dynamics using pressure-coupling matrices to simulate contagion, synchronization, divergence, and network stress propagation.
 
-Files Included
-
+Files
 engine_a.py
-Single-system engine implementing Flow–Capacity–Pressure–Drift–Trust dynamics.
-
 engine_b.py
-Two-layer engine modeling fast/slow system interactions and recursive feedback.
-
 engine_c.py
-Multi-system contagion engine using pressure-coupling matrices.
 
-License
 
-Released under the MIT License to support unrestricted academic and research use.
-You may use, modify, redistribute, or extend this work freely with attribution.
+All engines are:
+
+parameter-driven
+
+domain-agnostic
+
+designed for research, extension, and experimentation
+
+Philosophy
+
+Flow Theory is released as an open research framework.
+
+You are encouraged to:
+
+explore
+
+modify
+
+extend
+
+break
+
+rebuild
+
+…in any direction that advances understanding of adaptive cycles or systemic behavior.
+
+The engines prioritize:
+
+clarity over complexity
+
+structure over noise
+
+generality over narrow assumptions
+
+Quick Start
+
+Run any engine directly:
+
+python engine_a.py
+python engine_b.py
+python engine_c.py
+
+
+Or import into your own work:
+
+from engine_a import engine_A
+output = engine_A(F0=1.3, C0=1.0, T0=0.8, D0=0.1, steps=50)
+
+
+No dependencies beyond standard Python.
+
+Citation
+
+If you use or extend this work, please cite:
+
+GhostDog (2025)
+The Flow Architecture: A Unified Model of Adaptive Cycles.
+SSRN Preprint.
+
+License — MIT
+
+Flow Theory Engines are released under the MIT License.
+
+You may use, modify, distribute, or extend the code freely.
+Attribution to GhostDog is the only requirement.
+
+Purpose
+
+This repository exists to support:
+
+academic research
+
+system modeling
+
+teaching
+
+replication
+
+stress testing
+
+code validation
+
+open theoretical development
+
+Flow Theory is meant to evolve — this is only the first version.
