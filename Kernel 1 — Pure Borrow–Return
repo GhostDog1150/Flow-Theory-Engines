@@ -1,0 +1,67 @@
+"""
+Kernel 1 — Pure Borrow–Return
+
+Implements the Borrow–Return identity:
+S_{t+1} = S_t + I_t - O_t
+
+This kernel demonstrates simple conservation:
+- Stock increases when inflow > outflow
+- Stock decreases when outflow > inflow
+- Over any period, cumulative imbalance equals change in stock
+"""
+
+from dataclasses import dataclass
+from typing import List, Callable
+
+
+@dataclass
+class Kernel1State:
+    t: int
+    stock: float
+    inflow: float
+    outflow: float
+
+
+def kernel1_step(stock: float, inflow: float, outflow: float) -> float:
+    """
+    Single Borrow–Return update.
+
+    Parameters
+    ----------
+    stock : float
+        Current stock S_t
+    inflow : float
+        Inflow I_t
+    outflow : float
+        Outflow O_t
+
+    Returns
+    -------
+    float
+        Next-period stock S_{t+1}
+    """
+    return stock + inflow - outflow
+
+
+def simulate_kernel1(
+    T: int,
+    S0: float,
+    inflow_rule: Callable[[int, float], float],
+    outflow_rule: Callable[[int, float], float],
+) -> List[Kernel1State]:
+    """
+    Simulate Kernel 1 for T steps.
+
+    inflow_rule(t, S_t) and outflow_rule(t, S_t) define I_t and O_t.
+    """
+
+    states: List[Kernel1State] = []
+    S = S0
+
+    for t in range(T):
+        I_t = inflow_rule(t, S)
+        O_t = outflow_rule(t, S)
+        states.append(Kernel1State(t=t, stock=S, inflow=I_t, outflow=O_t))
+        S = kernel1_step(S, I_t, O_t)
+
+    return states
